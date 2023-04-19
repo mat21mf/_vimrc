@@ -1,0 +1,4 @@
+# Configuración vim
+
+- vimrc
+- plugins
