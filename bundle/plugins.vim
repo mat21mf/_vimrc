@@ -33,9 +33,9 @@
       " YouCompleteMe
       "
 
-      " Plugin 'Valloric/YouCompleteMe'
-      Plugin 'tabnine/YouCompleteMe'
+      Plugin 'Valloric/YouCompleteMe'
       " third_party/ycmd/ycmd/completers/
+      let g:ycm_language_server = [ {'name': 'r', 'filetypes': ['r', 'rscript'], 'cmdline': ['/usr/local/bin/R', '--slave', '-e', 'languageserver::run()'] } ]
       let g:ycm_semantic_triggers = {
             \   'tex': ['{'],
             \   'r': ['re!..', '::', '$', '@']
@@ -43,21 +43,14 @@
       set runtimepath+=~/.vim/bundle/YouCompleteMe
       let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
       let g:ycm_confirm_extra_conf=0
-      let g:ycm_python_binary_path='/usr/bin/python3.10'
-      let g:ycm_python_interpreter_path = '/usr/lib/python3.10'
-     "let g:ycm_python_binary_path = '$HOME/.anaconda3/envs/geoenv/bin/python3.10'
-     "let g:ycm_python_interpreter_path = '$HOME/.anaconda3/envs/geoenv/lib/python3.10'
+      let g:ycm_python_binary_path='/usr/bin/python3.11'
+      let g:ycm_python_interpreter_path = '/usr/lib/python3.11'
+     "let g:ycm_python_binary_path = '$HOME/.anaconda3/envs/geoenv/bin/python3.11'
+     "let g:ycm_python_interpreter_path = '$HOME/.anaconda3/envs/geoenv/lib/python3.11'
 
       "
       " Interpretes
       "
-
-      " vim-tmux-runner
-      Plugin 'christoomey/vim-tmux-runner'
-      let g:VtrUseVtrMaps = 1
-      let g:VtrStripLeadingWhitespace = 1
-      let g:VtrClearEmptyLines = 1
-      " vim-tmux-runner + conda pendiente
 
       " jupyter ascending
       Plugin 'untitled-ai/jupyter_ascending.vim'
@@ -67,6 +60,13 @@
 
       " capslock
       Plugin 'tpope/vim-capslock'
+
+      " vim-tmux-runner
+      Plugin 'christoomey/vim-tmux-runner'
+      let g:VtrUseVtrMaps = 1
+      let g:VtrStripLeadingWhitespace = 1
+      let g:VtrClearEmptyLines = 1
+      " vim-tmux-runner + conda pendiente
 
       " vimux
       Plugin 'preservim/vimux'
@@ -92,9 +92,9 @@
       nnoremap <localleader>r :normal :REPLToggle<Cr>
       nnoremap <localleader>ss :REPLSendSession<Cr>
 
- "    " vim-cpyvke
- "    " estado beta
- "    Plugin 'ipselium/vim-cpyvke'
+      " vim-cpyvke
+      " estado beta
+      " Plugin 'ipselium/vim-cpyvke'
 
       "
       " Utilidades
@@ -156,9 +156,7 @@
       " Esquemas de color
       "
 
-      " iceberg colorscheme
-      " Plugin 'cocopon/iceberg.vim'
-      " Plugin 'morhetz/gruvbox'
+      " jellybeans colorscheme
       Plugin 'nanotech/jellybeans.vim'
 
       "
@@ -190,12 +188,30 @@
       let R_never_unmake_menu = 1
 
       "
+      " SPSS
+      "
+
+      Plugin 'vim-scripts/spss-syntax-highlighting-file'
+
+      "
       " Frontend
       "
 
       " emmet
       Plugin 'mattn/emmet-vim'
       let g:user_emmet_leader_key='<C-Z>'
+
+      "
+      " Presentaciones
+      "
+
+      " Quarto pandoc
+      Plugin 'vim-pandoc/vim-pandoc-syntax'
+      Plugin 'quarto-dev/quarto-vim'
+
+      "
+      " End plugins
+      "
 
  call vundle#end()
 
