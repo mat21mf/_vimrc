@@ -4,8 +4,8 @@
 
 Respaldar los siguientes archivos
 
-* vimrc
-* plugins
+* .vimrc
+* bundle/plugins.vim
 
 ## Por hacer
 
