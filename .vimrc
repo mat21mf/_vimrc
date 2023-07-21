@@ -201,6 +201,7 @@
  nmap <leader>yp :normal yss)<cr>
  nnoremap <leader>jq :sil g/^\([0-9a-z]\{8}\)\([0-9a-z]\{4}\)\([0-9a-z]\{4}\)\([0-9a-z]\{4}\)\([0-9a-z]\{12}\)$/s//\1-\2-\3-\4-\5/<cr>
  nnoremap <leader>qj :sil g/^\([0-9a-z]\{8}\)-\([0-9a-z]\{4}\)-\([0-9a-z]\{4}\)-\([0-9a-z]\{4}\)-\([0-9a-z]\{12}\)$/s//\1\2\3\4\5/<cr>
+ " nnoremap <leader>tt :normal Vy \| <C-w>w \| :normal P
 
 
  "==============================="
@@ -283,6 +284,7 @@
      au BufNewFile,BufRead  *.do          set syntax=stata
      au BufNewFile,BufRead  *.lua         set syntax=lua
      au BufNewFile,BufRead  *.tex         set syntax=tex
+     au BufNewFile,BufRead  *.sps         set syntax=spss
 
      " FileType
      autocmd BufNewFile,BufRead *.Rscript set ft=r
@@ -457,6 +459,10 @@ endfunction
 
 "command IncPatRango call IncPatRango()
 nnoremap <leader>i :call IncPatRango()<cr>
+
+" jupyter ascending
+  nnoremap <leader>mp o# %% [markdown]<ESC>
+  nnoremap <leader>jp o# %%<ESC>
 
  " ========= ANTIGUO ==========
  " Vimrc file, http://phuzz.org
