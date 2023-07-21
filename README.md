@@ -1,4 +1,12 @@
 # Configuración vim
 
-- vimrc
-- plugins
+## Propósito
+
+Respaldar los siguientes archivos
+
+* vimrc
+* plugins
+
+## Por hacer
+
+* Excluir secrets
