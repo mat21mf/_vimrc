@@ -341,7 +341,9 @@
        autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
      augroup END
 
-
+  " DVC
+  " https://dvc.org/doc/install/ide-plugins
+  autocmd! BufNewFile,BufRead Dvcfile,*.dvc,dvc.lock setfiletype yaml
 
     " set verbose=1
 
