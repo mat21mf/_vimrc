@@ -102,6 +102,7 @@
 
       Plugin 'tpope/vim-fugitive'
       set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
+      Plugin 'idanarye/vim-merginal'
       Plugin 'shumphrey/fugitive-gitlab.vim'
       Plugin 'tpope/vim-surround'
       Plugin 'tpope/vim-repeat'
