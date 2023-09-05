@@ -540,3 +540,4 @@ nnoremap <leader>i :call IncPatRango()<cr>
 "set runtimepath=$VIM,$VIMRUNTIME,$VIMRUNTIME/bundle/unite.vim/,$VIMRUNTIME/bundle/vimproc/
 "
 "
+"

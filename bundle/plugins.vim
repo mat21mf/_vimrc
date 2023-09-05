@@ -35,7 +35,7 @@
 
       Plugin 'Valloric/YouCompleteMe'
       " third_party/ycmd/ycmd/completers/
-      " R, Rscript, Rmd completers
+      " R, Rscript, Rmd third party completers
       let g:ycm_language_server = [ {'name': 'r', 'filetypes': ['r', 'rscript', 'rmd'], 'cmdline': ['/usr/local/bin/R', '--slave', '-e', 'languageserver::run()'] } ]
       let g:ycm_semantic_triggers = {
             \   'tex': ['{'],
