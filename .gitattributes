@@ -1,0 +1,4 @@
+# Convert to LF line endings on checkout.
+*.sh text eol=lf
+*.r text eol=lf
+*.rscript text eol=lf
