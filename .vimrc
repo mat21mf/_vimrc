@@ -345,6 +345,11 @@
   " https://dvc.org/doc/install/ide-plugins
   autocmd! BufNewFile,BufRead Dvcfile,*.dvc,dvc.lock setfiletype yaml
 
+  " autoread cambiar entre git branches
+  " https://superuser.com/questions/181377/auto-reloading-a-file-in-vim-as-soon-as-it-changes-on-disk
+  set autoread
+  au CursorHold * checktime
+
     " set verbose=1
 
 
@@ -452,7 +457,7 @@
 "imap <Esc>Oz 0
 "
 
-function IncPatRango()
+function! IncPatRango()
   /07
   normal Vy7pV6j
   normal :<80>ku<80>ku<80>kd<80>ku^M
@@ -533,3 +538,5 @@ nnoremap <leader>i :call IncPatRango()<cr>
 "set helplang=en
 "let $VIMRUNTIME='c:/Users/mrebolledo/Downloads/vim-7.4.417/vim-7.4.417/'
 "set runtimepath=$VIM,$VIMRUNTIME,$VIMRUNTIME/bundle/unite.vim/,$VIMRUNTIME/bundle/vimproc/
+"
+"

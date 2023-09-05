@@ -35,7 +35,8 @@
 
       Plugin 'Valloric/YouCompleteMe'
       " third_party/ycmd/ycmd/completers/
-      let g:ycm_language_server = [ {'name': 'r', 'filetypes': ['r', 'rscript'], 'cmdline': ['/usr/local/bin/R', '--slave', '-e', 'languageserver::run()'] } ]
+      " R, Rscript, Rmd completers
+      let g:ycm_language_server = [ {'name': 'r', 'filetypes': ['r', 'rscript', 'rmd'], 'cmdline': ['/usr/local/bin/R', '--slave', '-e', 'languageserver::run()'] } ]
       let g:ycm_semantic_triggers = {
             \   'tex': ['{'],
             \   'r': ['re!..', '::', '$', '@']
@@ -43,14 +44,43 @@
       set runtimepath+=~/.vim/bundle/YouCompleteMe
       let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
       let g:ycm_confirm_extra_conf=0
-      let g:ycm_python_binary_path='/usr/bin/python3.11'
-      let g:ycm_python_interpreter_path = '/usr/lib/python3.11'
-     "let g:ycm_python_binary_path = '$HOME/.anaconda3/envs/geoenv/bin/python3.11'
-     "let g:ycm_python_interpreter_path = '$HOME/.anaconda3/envs/geoenv/lib/python3.11'
+      " WSL o Linux
+      let uname = substitute(system('uname'),'\n','','')
+      if uname == 'Linux'
+          let lines = readfile("/proc/version")
+          if lines[0] =~ "Microsoft"
+              let g:ycm_python_binary_path='~/.anaconda3/bin/python'
+              let g:ycm_python_interpreter_path='~/.anaconda3/bin/python'
+          elseif
+              let g:ycm_python_binary_path='/usr/bin/python3.11'
+              let g:ycm_python_interpreter_path='/usr/lib/python3.11'
+          endif
+      endif
 
       "
       " Interpretes
       "
+
+      " vim-repl
+      Plugin 'sillybun/vim-repl'
+      let g:repl_program = {
+            \    'python': 'ipython',
+            \    'default': 'bash'
+            \    }
+      let g:repl_predefine_python = {
+            \   'pandas': 'import pandas as pd',
+            \   'numpy': 'import numpy as np',
+            \   'matplotlib': 'from matplotlib import pyplot as plt'
+            \   }
+      let g:sendtorepl_invoke_key = "<localleader>l"
+      " let g:repl_python_pre_launch_command = 'source ~/.anaconda3/etc/profile.d/conda.sh && conda activate geoenv'
+      autocmd Filetype python nnoremap <F9> <Esc>:REPLToggle<Cr>
+      autocmd Filetype python nnoremap <F12> <Esc>:REPLDebugStopAtCurrentLine<Cr>
+      autocmd Filetype python nnoremap <F10> <Esc>:REPLPDBN<Cr>
+      autocmd Filetype python nnoremap <F11> <Esc>:REPLPDBS<Cr>
+      " nnoremap <leader>r :REPLToggle<Cr>
+      " nnoremap <localleader>r :normal :REPLToggle<Cr>
+      nnoremap <localleader>ss :REPLSendSession<Cr>
 
       " jupyter ascending
       Plugin 'untitled-ai/jupyter_ascending.vim'
@@ -75,22 +105,6 @@
 
       " python-mode
       Plugin 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
-
-      " vim-repl
-      Plugin 'sillybun/vim-repl'
-      let g:repl_program = {
-            \    'python': 'ipython',
-            \    'default': 'bash'
-            \    }
-      let g:repl_predefine_python = {
-            \   'pandas': 'import pandas as pd',
-            \   'numpy': 'import numpy as np',
-            \   'matplotlib': 'from matplotlib import pyplot as plt'
-            \   }
-      let g:sendtorepl_invoke_key = "<localleader>l"
-      let g:repl_python_pre_launch_command = 'source ~/.anaconda3/etc/profile.d/conda.sh && conda activate geoenv'
-      nnoremap <localleader>r :normal :REPLToggle<Cr>
-      nnoremap <localleader>ss :REPLSendSession<Cr>
 
       " vim-cpyvke
       " estado beta
