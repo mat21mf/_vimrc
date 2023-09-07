@@ -65,7 +65,10 @@
       Plugin 'sillybun/vim-repl'
       let g:repl_program = {
             \    'python': 'ipython',
-            \    'default': 'bash'
+            \    'default': 'bash',
+            \    'r': 'R --no-save --no-restore',
+            \    'lua': 'lua',
+            \    'vim': 'vim -e',
             \    }
       let g:repl_predefine_python = {
             \   'pandas': 'import pandas as pd',
@@ -74,13 +77,26 @@
             \   }
       let g:sendtorepl_invoke_key = "<localleader>l"
       " let g:repl_python_pre_launch_command = 'source ~/.anaconda3/etc/profile.d/conda.sh && conda activate geoenv'
-      autocmd Filetype python nnoremap <F9> <Esc>:REPLToggle<Cr>
+      let g:repl_cursor_down = 1
+      let g:repl_python_automerge = 1
+      " comunes cualquier interprete
+      nnoremap <F7> <Esc>:REPLHide<Cr>
+      nnoremap <F9> <Esc>:REPLToggle<Cr>
+      nnoremap <F5> <Esc>:REPLSendSession<Cr>
       autocmd Filetype python nnoremap <F12> <Esc>:REPLDebugStopAtCurrentLine<Cr>
       autocmd Filetype python nnoremap <F10> <Esc>:REPLPDBN<Cr>
       autocmd Filetype python nnoremap <F11> <Esc>:REPLPDBS<Cr>
-      " nnoremap <leader>r :REPLToggle<Cr>
       " nnoremap <localleader>r :normal :REPLToggle<Cr>
-      nnoremap <localleader>ss :REPLSendSession<Cr>
+      " enviar lado derecho de una expresion
+      autocmd Filetype python nnoremap <localleader>ss :REPLSendRHSofCurrentLine<Cr>
+      let g:repl_position = 3
+      let g:repl_exit_commands = {
+            \    'python': 'quit()',
+            \    'r': 'quit(save="no")',
+            \    'bash': 'exit',
+            \    'zsh': 'exit',
+            \    'default': 'exit',
+            \    }
 
       " jupyter ascending
       Plugin 'untitled-ai/jupyter_ascending.vim'
