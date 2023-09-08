@@ -51,7 +51,7 @@
           if lines[0] =~ "Microsoft"
               let g:ycm_python_binary_path='~/.anaconda3/bin/python'
               let g:ycm_python_interpreter_path='~/.anaconda3/bin/python'
-          elseif
+          else
               let g:ycm_python_binary_path='/usr/bin/python3.11'
               let g:ycm_python_interpreter_path='/usr/lib/python3.11'
           endif
