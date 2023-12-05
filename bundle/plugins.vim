@@ -112,6 +112,17 @@
       let g:VtrUseVtrMaps = 1
       let g:VtrStripLeadingWhitespace = 1
       let g:VtrClearEmptyLines = 1
+      nnoremap <leader>va   :VtrAttachToPane<cr>
+      nnoremap <leader>ror  :VtrReorientRunner<cr>
+      nnoremap <leader>sc   :VtrSendCommandToRunner<cr>
+      nnoremap <leader>sf   :VtrSendFile<cr>
+      nnoremap <leader>sl   :VtrSendLinesToRunner<cr>
+      nnoremap <leader>or   :VtrOpenRunner<cr>
+      nnoremap <leader>kr   :VtrKillRunner<cr>
+      nnoremap <leader>fr   :VtrFocusRunner<cr>
+      nnoremap <leader>dr   :VtrDetachRunner<cr>
+      nnoremap <leader>cr   :VtrClearRunner<cr>
+      nnoremap <leader>fc   :VtrFlushCommand<cr>
       " vim-tmux-runner + conda pendiente
 
       " vimux
