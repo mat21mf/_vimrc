@@ -1,5 +1,5 @@
 
-MYHOME="$HOME"
+MYHOME="$HOME/work"
 
 ## load directories
 if [[ ! -d $MYHOME/.vim ]] ; then mkdir -p $MYHOME/.vim ; fi
