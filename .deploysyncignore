@@ -1,0 +1,3 @@
+# .deploysyncignore
+config-vim-jupyter.sh
+config-vim-linux.sh
